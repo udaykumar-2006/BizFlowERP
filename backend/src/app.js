@@ -3,6 +3,7 @@ const authRoutes = require('./routes/auth.routes');
 const customerRoutes = require('./routes/customer.routes');
 const productRoutes = require('./routes/product.routes');
 const inventoryRoutes = require('./routes/inventory.routes');
+const challanRoutes = require('./routes/challan.routes');
 const { errorHandler } = require('./middleware/error.middleware');
 
 const app = express();
@@ -17,6 +18,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/customers', customerRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/stock-movements', inventoryRoutes);
+app.use('/api/challans', challanRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
