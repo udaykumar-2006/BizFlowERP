@@ -2,6 +2,7 @@ const express = require('express');
 const authRoutes = require('./routes/auth.routes');
 const customerRoutes = require('./routes/customer.routes');
 const productRoutes = require('./routes/product.routes');
+const inventoryRoutes = require('./routes/inventory.routes');
 const { errorHandler } = require('./middleware/error.middleware');
 
 const app = express();
@@ -15,6 +16,7 @@ app.get('/api/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/customers', customerRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/stock-movements', inventoryRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
